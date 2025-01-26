@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const fetchHeadcount = async (): Promise<number> => {
     // Simulate API call with random number between 0 and 100
     return new Promise((resolve) => {
@@ -8,4 +10,16 @@ export const fetchHeadcount = async (): Promise<number> => {
     });
   };
 
+
+  export const fetchDataFromMockApi = async (url: string): Promise<unknown> => {
+    try {
+      const response = await axios.get(url);
+      return response.data;
+    } catch (error) {
+      throw new Error(`Failed to fetch data from ${url}: ${error.message}`);
+    }
+  };
+
   
+
+
